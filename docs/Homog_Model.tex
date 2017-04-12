@@ -1,0 +1,116 @@
+
+%%%
+%%% CHAPTER
+%%%
+\chapter{Upscaling Formulation Model}\label{Chapter:UpscalingFormulationModel}
+
+%%% Summary of the Chapter
+\begin{adjustwidth}{1cm}{1cm}
+   {\it The main aim of this chapter is to describe the variety of determininstic and stochastic upscaling models and ...}
+\medskip
+\end{adjustwidth}
+
+
+\section{Definitions}\label{Chapter:UpscalingFormulationModel:Section:Definitions}
+
+Given an open bounded domain $\Omega\subset\mathbb{R}^{d}$ with prescribed border $\partial\Omega$. Let's also define a space of all $\left(\text{d}\times\text{d}\right)$ real symmetric matrices\footnote{A matrix $\underline{\underline{A}}$ is said to be symmetric if $\underline{\underline{A}} = \underline{\underline{A}}^{T}$.}, $M_{d}^{\mathcal{S}}\left(\mathbb{R}\right)$. A subset of this space is the space of all real symmetric positive-definite matrices, $M_{d}^{+}\left(\mathbb{R}\right)$, such that,
+\begin{displaymath}
+  M_{d}^{+}\left(\mathbb{R}\right) \subset M_{d}^{\mathcal{S}}\left(\mathbb{R}\right),
+\end{displaymath}
+
+\begin{shaded}
+  \begin{center} {\bf A few important definitions of positive-definite matrices}\end{center}
+  %
+\begin{defn}{Symmetric:}\label{Def:Symmetric} A squared $d\times d$ matrix $\underline{\underline{A}}$ is said to be {\it symmetric} if $\underline{\underline{A}} = \underline{\underline{A}}^{T}$.
+\end{defn}
+%
+\begin{defn}{Positive-Definite Matrix:}\label{Def:PositiveDefinite} A squared $d\times d$ symmetric matrix $\underline{\underline{A}}$ is {\it positive definite} if $\forall \underline{z}\in\mathbb{R}^{d}$ $\left(\text{where }\underline{z}\text{ is a non-zero column vector}\right)$,
+  \begin{equation}
+    \underline{z}^{T}\underline{\underline{A}}\; \underline{z} > 0
+  \end{equation}
+\end{defn}
+\medskip
+
+\begin{center}{\bf General Properties:}\end{center}
+Suppose that the matrix $\underline{\underline{A}}$,
+\begin{displaymath}
+  \underline{\underline{A}} = \left[a_{ij}\right] =
+\begin{pmatrix}
+  a_{11}    &   a_{12}     & \cdots   & a_{1d}   \\
+  a_{21}    &   a_{22}     & \cdots   & a_{2d}   \\
+  \vdots   &    \vdots   & \ddots   & \vdots  \\
+  a_{d1}    &   a_{d2}     & \cdots   & a_{dd}   \\
+\end{pmatrix},
+\end{displaymath}
+is a positive-definite matrix, then
+\begin{enumerate}[i)]
+%
+   \item\label{prop1} The $p\times p$ $\left(\text{with }1\le p\le d\right)$ submatrix $\underline{\underline{A}}_{p}$, 
+\begin{displaymath}
+\begin{pmatrix}
+  a_{11}    &   a_{12}     & \cdots   & a_{1p}   \\
+  a_{21}    &   a_{22}     & \cdots   & a_{2p}   \\
+  \vdots   &    \vdots   & \ddots   & \vdots  \\
+  a_{p1}    &   a_{p2}     & \cdots   & a_{pp}   \\
+\end{pmatrix},
+\end{displaymath}
+is also {\it positive definite};
+%
+   \item\label{prop2} The $d$ eigenvalues of $\underline{\underline{A}}$, $\lambda_{1}, \lambda_{2}, \cdots, \lambda_{d}$ are positive;
+%
+   \item\label{prop3} There is a {\it unique} decomposition of $\underline{\underline{A}}$ ({\it Cholesky decomposition}),
+     \begin{equation}
+       \underline{\underline{A}} =  \underline{\underline{L}}\underline{\underline{L}}^{T},
+     \end{equation}
+     where $\underline{\underline{L}}$ is a lower triangular matrix, 
+     \begin{displaymath}
+       \underline{\underline{L}} = \left[l_{ij}\right] =
+\begin{pmatrix}
+  l_{11}    &   l_{12}     & \cdots   & l_{1d}   \\
+  l_{21}    &   l_{22}     & \cdots   & l_{2d}   \\
+  \vdots   &    \vdots   & \ddots   & \vdots  \\
+  l_{d1}    &   l_{d2}     & \cdots   & l_{dd}   \\
+\end{pmatrix}.
+     \end{displaymath}
+%     
+     \item\label{prop4} There is also a unique decomposition,
+     \begin{equation}
+       \underline{\underline{A}} =  \underline{\underline{B}}\underline{\underline{B}}^{T},
+     \end{equation}
+     where $\underline{\underline{B}} = \underline{\underline{A}}^{1/2}$
+%     
+\end{enumerate}
+
+%
+\end{shaded}
+
+
+Such domain can be characterised by a second-order symmetric tensor field, $\PermTensor{\mathcal{K}}$, with $\underline{x}$ being the spatial coordinates. 
+and 
+\begin{displaymath}
+  \PermTensor{\mathcal{K}} \subset M_{d}^{+}\left(\mathbb{R}\right).
+\end{displaymath}
+The tensor $\PermTensor{\mathcal{K}}$ containing components
+\begin{displaymath}
+  \PermComp{\mathcal{K}},
+\end{displaymath}
+is defined on a probability space $\left(\Theta, \mathcal{F}, \mathcal{P}\right)$, where
+\begin{itemize}
+   \item $\Theta$: sample space which is the set of all possible outcomes;
+    \item $\mathcal{F}$: set of events, where each event is a set containing zero or more outcomes;
+    \item $\mathcal{P}$: function of the assignment of probabilities to the event.
+\end{itemize}
+
+\[
+\begin{bmatrix}
+  \mathcal{K}_{11}  & \mathcal{K}_{12}  & \mathcal{K}_{13} \\
+  \mathcal{K}_{21}  & \mathcal{K}_{22}  & \mathcal{K}_{23} \\
+  \mathcal{K}_{31}  & \mathcal{K}_{32}  & \mathcal{K}_{33} \\
+\end{bmatrix}
+=
+\begin{bmatrix}
+  \mathcal{K}_{11}  & \mathcal{K}_{21}  & \mathcal{K}_{31} \\
+  \mathcal{K}_{12}  & \mathcal{K}_{22}  & \mathcal{K}_{32} \\
+  \mathcal{K}_{13}  & \mathcal{K}_{23}  & \mathcal{K}_{33} \\
+\end{bmatrix}
+\]

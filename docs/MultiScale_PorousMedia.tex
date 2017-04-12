@@ -1,0 +1,445 @@
+
+\documentclass[11pts,a4paper,amsmath,amssymb,floatfix]{book}
+
+%\usepackage[gather]{chapterbib}
+
+\usepackage{graphicx,wrapfig}% Include figure files
+%\usepackage{dcolumn,enumerate}% Align table columns on decimal point
+\usepackage{enumerate}% Align table columns on decimal point
+\usepackage{bm,dpfloat}% bold math
+\usepackage[pdftex,bookmarks,colorlinks=true,urlcolor=rltblue,citecolor=blue]{hyperref}
+\usepackage{amsfonts,amsmath,amsthm,amssymb,stmaryrd,indentfirst}
+\usepackage{times,psfrag,pdfpages}
+\usepackage[sort&compress,comma,authoryear]{natbib}
+\usepackage{color}
+\usepackage{units}
+\usepackage{rotating}
+\usepackage{multirow}
+
+%\usepackage{algorithm}
+\usepackage[linesnumbered,lined,boxed,commentsnumbered]{algorithm2e}
+%[ruled,vlined][linesnumbered,lined,boxed,commentsnumbered]
+
+\usepackage[noend]{algpseudocode}
+\makeatletter
+\def\BState{\State\hskip-\ALG@thistlm}
+\makeatother
+
+\usepackage{pifont}
+\usepackage{subfigure}
+\usepackage{subeqnarray}
+\usepackage{ifthen}
+\usepackage{cancel}
+
+\usepackage{supertabular}
+\usepackage{moreverb}
+\usepackage{fancyvrb}
+\usepackage{listings}
+\usepackage{palatino}
+%\usepackage{doi}
+\usepackage{longtable}
+\usepackage{float}
+%\usepackage{perpage}
+%\MakeSorted{figure}
+\usepackage{framed}
+\definecolor{shadecolor}{gray}{0.9}
+%\usepackage{pdflscape}
+
+% Appendix allows the inclusion of a line for "appendices", which otherwise won't get the right page number. You must
+% use the [toc] option.
+%\usepackage[toc]{appendix}% Text + Eqn box:
+
+%\usepackage[framemethod=TikZ]{./mdframed/mdframed}
+%\usepackage{lipsum}
+%\mdfdefinestyle{JFrame}{%
+%    linecolor=blue,
+%    outerlinewidth=1pt,
+%    roundcorner=20pt,
+%    innertopmargin=\baselineskip,
+%    innerbottommargin=\baselineskip,
+%    innerrightmargin=20pt,
+%    innerleftmargin=20pt, 
+%    backgroundcolor=blue!10!white}
+
+%\usepackage[framemethod=default]{./mdframed/mdframed}
+%\usepackage{showexpl}
+%\mdfdefinestyle{exampledefault}{%
+%rightline=true,innerleftmargin=10,innerrightmargin=10,
+%frametitlerule=true,frametitlerulecolor=green,
+%frametitlebackgroundcolor=yellow,
+%frametitlerulewidth=2pt}
+
+\definecolor{rltblue}{rgb}{0,0,0.75}
+
+%\usepackage{natbib}
+\usepackage{fancyhdr} %%%%
+\pagestyle{fancy}%%%%
+% with this we ensure that the chapter and section
+% headings are in lowercase
+\renewcommand{\chaptermark}[1]{\markboth{#1}{}}
+\renewcommand{\sectionmark}[1]{\markright{\thesection\ #1}}
+\fancyhf{} %delete the current section for header and footer
+%\fancyhead[LE,RO]{\bfseries\thepage}
+%\fancyfoot[LE,RO]{\bfseries\thepage}
+\fancyhead[LO]{\bfseries\rightmark}
+\fancyhead[RE]{\bfseries\leftmark}
+\renewcommand{\headrulewidth}{0.5pt}
+% make space for the rule
+\fancypagestyle{plain}{%
+\fancyhead{} %get rid of the headers on plain pages
+\renewcommand{\headrulewidth}{0pt} % and the line
+}
+
+\def\newblock{\hskip .11em plus .33em minus .07em}
+\usepackage{color}
+
+\theoremstyle{definition}
+%\newtheorem{exmp}{Example}[chapter]
+
+\newenvironment{fminipage}%
+{\fbox{\begin{minipage}}%
+{\end{minipage}}}
+
+% For theorems, lemma, proposition and corollary
+\theoremstyle{plain}
+\newtheorem{thm}{Theorem}[section]
+\newtheorem{lem}[thm]{Lemma}
+\newtheorem{prop}[thm]{Proposition}
+\newtheorem*{cor}{Corollary}
+\theoremstyle{definition}
+\newtheorem{defn}{Definition}[section]
+\newtheorem{conj}{Conjecture}[section]
+\newtheorem{exmp}{Example}[section]
+\theoremstyle{remark}
+\newtheorem*{rem}{Remark}
+\newtheorem*{note}{Note}
+
+
+
+%\newtheorem{theorem}{Theorem}[section]
+%\newtheorem{corollary}{Corollary}[theorem]
+%\newtheorem{lemma}[theorem]{Lemma}
+
+\usepackage{makeidx}
+\makeindex
+
+\setlength\textwidth      {16.cm}
+\setlength\textheight     {23.0cm}
+\setlength\oddsidemargin  {-0.3cm}
+\setlength\evensidemargin {0.3cm}
+
+\setlength\headheight{14.49998pt} 
+\setlength\topmargin{0.0cm}
+\setlength\headsep{1.cm}
+\setlength\footskip{-0.5cm}
+\setlength\parskip{0pt}
+\setlength\parindent{0pt}
+%%%
+%%% Headers and Footers
+%\lhead[\text{\small{WORK IN PROGRESS}}] {\text{\small{ICON/AMCG}}} 
+%-\lhead[] {\text{\small{ICON/AMCG}}} 
+%-\chead[\text{\small{FETCH Manual}}]  {\text{\small{FETCH Manual}}} %{\text{\small{JAERI Analysis Report Issue}}}
+%-\rhead[\text{\small{Commercial-in Confidence}}]{}
+\cfoot[\thepage]{\thepage}
+%-\rfoot[]{}%{\text{\small{\today}}}
+%\cfoot[\text{\small{\today}}]{}% {\text{\small{\today}}}
+%\cfoot[\text{\small{January 2006}}] {\text{\small{January 2006}}}
+%-\lfoot []{}%{\text{\small{Numerical Analysis}}}
+%-\renewcommand{\headrulewidth}{0.8pt}
+
+%%%
+%%% space between lines
+%%%
+\renewcommand{\baselinestretch}{1.5}
+
+\newenvironment{VarDescription}[1]%
+  {\begin{list}{}{\renewcommand{\makelabel}[1]{\textbf{##1:}\hfil}%
+    \settowidth{\labelwidth}{\textbf{#1:}}%
+    \setlength{\leftmargin}{\labelwidth}\addtolength{\leftmargin}{\labelsep}}}%
+  {\end{list}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%                              %%%%%%%
+%%%%%%      NOTATION SECTION        %%%%%%%
+%%%%%%                              %%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% Text abbreviations.
+\newcommand{\ie}{{\em{i.e., }}}
+\newcommand{\eg}{{\em{e.g., }}}
+\newcommand{\cf}{{\em{cf., }}}
+\newcommand{\SAA}{{\em{Simulated Annealing Algorithm }}}
+\newcommand{\fetch}{FETCH }
+\newcommand{\fmips}{FETCH-MIPS }
+\newcommand{\bw}{B$\$$W }
+\newcommand{\fluidity}{Fluidity }
+\newcommand{\event}{{EVENT }}
+\newcommand{\gem}{GEM }
+\newcommand{\radiant}{RADIANT }
+\newcommand{\wrt}{with respect to }
+\newcommand{\lhs}{left hand side}
+\newcommand{\rhs}{right-hand side }
+\newcommand{\vv}{V$\&$V }
+\newcommand{\cse}{CS$\&$E }
+\newcommand{\amcg}{\href{http://amcg.ese.ic.ac.uk}{AMCG }}
+% Commands definining mathematical notation.
+
+% This is for quantities which are physically vectors.
+\renewcommand{\vec}[1]{{\mbox{\boldmath$#1$}}}
+% Physical rank 2 tensors
+\newcommand{\tensor}[1]{\overline{\overline{#1}}}
+% This is for vectors formed of the value of a quantity at each node.
+\newcommand{\dvec}[1]{\underline{#1}}
+% This is for matrices in the discrete system.
+\newcommand{\mat}[1]{\mathrm{#1}}
+
+
+\DeclareMathOperator{\sgn}{sgn}
+
+%\newcommand\qed{\hfill\mbox{$\Box$}}
+\newcommand{\re}{{\mathrm{I}\hspace{-0.2em}\mathrm{R}}}
+\newcommand{\inner}[2]{\langle#1,#2\rangle}
+\renewcommand\leq{\leqslant}
+\renewcommand\geq{\geqslant}
+\renewcommand\le{\leqslant}
+\renewcommand\ge{\geqslant}
+\renewcommand\epsilon{\varepsilon}
+\newcommand\eps{\varepsilon}
+\newcommand{\bmF}{\vec{F}}
+\newcommand{\bmphi}{\vec{\phi}}
+\newcommand{\bmn}{\vec{n}}
+\newcommand{\bmns}{{\textrm{\scriptsize{\boldmath $n$}}}}
+\newcommand{\bmi}{\vec{i}}
+\newcommand{\bmj}{\vec{j}}
+\newcommand{\bmk}{\vec{k}}
+\newcommand{\bmx}{\vec{x}}
+\newcommand{\bmu}{\vec{u}}
+\newcommand{\bmv}{\vec{v}}
+\newcommand{\bmr}{\vec{r}}
+\newcommand{\bma}{\vec{a}}
+\newcommand{\bmg}{\vec{g}}
+\newcommand{\bmU}{\vec{U}}
+\newcommand{\bmI}{\vec{I}}
+\newcommand{\bmq}{\vec{q}}
+\newcommand{\bmT}{\vec{T}}
+\newcommand{\bmM}{\vec{M}}
+\newcommand{\bmtau}{\vec{\tau}}
+\newcommand{\bmOmega}{\vec{\Omega}}
+\newcommand{\pp}{\partial}
+\newcommand{\kaptens}{\tensor{\kappa}}
+\newcommand{\tautens}{\tensor{\tau}}
+\newcommand{\sigtens}{\tensor{\sigma}}
+\newcommand{\etens}{\tensor{\dot\epsilon}}
+\newcommand{\ktens}{\tensor{k}}
+\newcommand{\half}{{\textstyle \frac{1}{2}}}
+\newcommand{\tote}{E}
+\newcommand{\inte}{e}
+\newcommand{\strt}{\dot\epsilon}
+\newcommand{\modu}{|\bmu|}
+\newcommand{\summation}{\sum\limits}
+% Derivatives
+\renewcommand{\d}{\mathrm{d}}
+\newcommand{\D}{\mathrm{D}}
+\newcommand{\ddx}[2][x]{\frac{\d#2}{\d#1}}
+\newcommand{\ddxx}[2][x]{\frac{\d^2#2}{\d#1^2}}
+\newcommand{\ddt}[2][t]{\frac{\d#2}{\d#1}}
+\newcommand{\ddtt}[2][t]{\frac{\d^2#2}{\d#1^2}}
+\newcommand{\ppx}[2][x]{\frac{\partial#2}{\partial#1}}
+\newcommand{\ppxx}[2][x]{\frac{\partial^2#2}{\partial#1^2}}
+\newcommand{\ppt}[2][t]{\frac{\partial#2}{\partial#1}}
+\newcommand{\pptt}[2][t]{\frac{\partial^2#2}{\partial#1^2}}
+\newcommand{\DDx}[2][x]{\frac{\D#2}{\D#1}}
+\newcommand{\DDxx}[2][x]{\frac{\D^2#2}{\D#1^2}}
+\newcommand{\DDt}[2][t]{\frac{\D#2}{\D#1}}
+\newcommand{\DDtt}[2][t]{\frac{\D^2#2}{\D#1^2}}
+% Norms
+\newcommand{\Ltwo}{\ensuremath{L_2} }
+
+% Units
+\newcommand{\m}[1][]{\unit[#1]{m}}
+\newcommand{\km}[1][]{\unit[#1]{km}}
+\newcommand{\s}[1][]{\unit[#1]{s}}
+\newcommand{\invs}[1][]{\unit[#1]{s}\ensuremath{^{-1}}}
+\newcommand{\ms}[1][]{\unit[#1]{m\ensuremath{\,}s\ensuremath{^{-1}}}}
+\newcommand{\mss}[1][]{\unit[#1]{m\ensuremath{\,}s\ensuremath{^{-2}}}}
+\newcommand{\K}[1][]{\unit[#1]{K}}
+\newcommand{\PSU}[1][]{\unit[#1]{PSU}}
+\newcommand{\Pa}[1][]{\unit[#1]{Pa}}
+\newcommand{\kg}[1][]{\unit[#1]{kg}}
+\newcommand{\rads}[1][]{\unit[#1]{rad\ensuremath{\,}s\ensuremath{^{-1}}}}
+\newcommand{\kgmm}[1][]{\unit[#1]{kg\ensuremath{\,}m\ensuremath{^{-2}}}}
+\newcommand{\kgmmm}[1][]{\unit[#1]{kg\ensuremath{\,}m\ensuremath{^{-3}}}}
+\newcommand{\Nmm}[1][]{\unit[#1]{N\ensuremath{\,}m\ensuremath{^{-2}}}}
+
+% Dimensionless numbers
+\newcommand{\dimensionless}[1]{\mathrm{#1}}
+\renewcommand{\Re}{\dimensionless{Re}}
+\newcommand{\Ro}{\dimensionless{Ro}}
+\newcommand{\Fr}{\dimensionless{Fr}}
+\newcommand{\Bu}{\dimensionless{Bu}}
+\newcommand{\Ri}{\dimensionless{Ri}}
+\renewcommand{\Pr}{\dimensionless{Pr}}
+\newcommand{\Pe}{\dimensionless{Pe}}
+\newcommand{\Ek}{\dimensionless{Ek}}
+\newcommand{\Gr}{\dimensionless{Gr}}
+\newcommand{\Ra}{\dimensionless{Ra}}
+\newcommand{\Sh}{\dimensionless{Sh}}
+\newcommand{\Sc}{\dimensionless{Sc}}
+
+
+% Journals
+\newcommand{\IJHMT}{{\it International Journal of Heat and Mass Transfer}}
+\newcommand{\NED}{{\it Nuclear Engineering and Design}}
+\newcommand{\ICHMT}{{\it International Communications in Heat and Mass Transfer}}
+\newcommand{\NET}{{\it Nuclear Engineering and Technology}}
+\newcommand{\HT}{{\it Heat Transfer}}   
+\newcommand{\IJHT}{{\it International Journal for Heat Transfer}}
+
+
+\newcommand{\frc}{\displaystyle\frac}
+\newcommand{\red}{\textcolor{red}}
+\newcommand{\blue}{\textcolor{blue}}
+\newcommand{\green}{\textcolor{green}}
+\newcommand{\purple}{\textcolor{purple}}
+\newcommand{\PN}[2][error]{P$_{#1}$DG-P$_{#2}$}
+\newcommand{\PNDG}[2][error]{P$_{#1}$DG-P$_{#2}$DG}
+%\newcommand{\PNDG}[3][error]{P$_{#1}$DG-P$_{#2}$DG$_{#3}$}
+\newcommand{\Partial}[3][error]{\left(\frc{\partial #1}{\partial #2}\right)_{#3}}
+\newcommand{\mfr}[3][error]{#1_{#2}^{\left(#3\right)}}
+\newcommand{\PermTensor}[1]{\underline{\underline{#1}}\left(\underline{x}\right)}
+\newcommand{\PermComp}[1]{\left[#1\left(x\right)\right]_{ij}}
+%{P$_{#1}$DG-P$_{#2}$DG}%$_{#3}$}
+
+%%% TIKz
+\usepackage{inputenc}
+\usepackage{tikz}
+\usetikzlibrary{shapes,arrows}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%                              %%%%%%%
+%%%%%% END OF THE NOTATION SECTION  %%%%%%%
+%%%%%%                              %%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% Cause numbering of subsubsections. 
+%\setcounter{secnumdepth}{8}
+%\setcounter{tocdepth}{8}
+
+\setcounter{secnumdepth}{4}%
+\setcounter{tocdepth}{4}%
+
+\newcounter{qcounter}
+\includeonly{Module_01, Module_02}
+%\includeonly{model_introduction, model_reservoir_equations, model_description}
+\DeclareMathAlphabet{\mathpzc}{OT1}{pzc}{m}{it}
+
+%%
+%% Short Abstract at the beginning of each chapter
+%%
+%%%% Option 1:
+\usepackage{changepage}
+%%%% Option 2:
+%\newenvironment{chapabstract}{%
+%    \begin{center}%
+%      %\bfseries Chapter Abstract
+%      \bfseries 
+%    \end{center}}%
+
+
+
+
+
+\begin{document}
+
+\vspace{4cm}
+
+\begin{titlepage}
+  \begin{center}
+   %  \includegraphics[width=15cm,clip]{./FigBanner/UoAHorizBanner}
+\vspace{3.5cm}
+
+       {\bf{\Huge Integrated Multi-Fluid Flows and Stochastic Upscaling Models}}
+
+\bigskip
+       {\bf{\huge Model Documentation}}
+
+\vspace{3.5cm}
+
+  \end{center}
+
+  \begin{tabular}{l c l}
+     {\bf{\large Authors:}}                         &     & B. Lashore, J.L.M.A. Gomes \\
+                                                    &     & Fluid and Structures Group \\
+                                                    &     & School of Engineering \\
+                                                    &     & University of Aberdeen \\
+\bigskip
+     {\bf{\large Date:}}                            &     &   \today                    \\
+                                                    &     &                             \\
+     {\bf{\large Revision 1:}}                      &     &  April 11, 2017  \\
+     {\bf{\large Revision 2:}}                      &     &  \today                     \\
+                                                    &     &                             \\
+  \end{tabular}
+\vspace{3.5cm}
+
+\bigskip
+
+\bigskip
+
+
+   \includegraphics[width=15cm,clip]{./FigBanner/UoAHorizBanner}
+
+
+
+\end{titlepage}
+
+\setcounter{page}{1}
+
+\tableofcontents
+\vfill
+
+%\pagebreak
+%\listoftables
+%\vfill
+%\pagebreak
+%\listoffigures
+%\vfill
+%\pagebreak
+\input{MultiphaseModel}
+\input{Upscaling_Models}
+\input{Homog_Model}
+
+%\input{Integrated_Compositional} % Compositional
+%\pagebreak
+
+%\cleardoublepage
+
+%\part{Appendices}
+
+  \begin{appendix}
+%     \input{Appendix_MassFraction}
+%     \input{Appendix_Conversion}
+%     \input{Appendix_Optimisation}
+%     \input{Appendix_NumMethods}
+  \end{appendix}
+
+%\cleardoublepage
+
+%\pagebreak
+
+%\bibliographystyle{plain}
+%\bibliography{references}
+%\bibliographystyle{unsrt}
+\bibliographystyle{plainnat}
+\bibliography{references}
+\bibliographystyle{unsrt}
+
+\cleardoublepage
+\phantomsection
+\renewcommand\leftmark{}
+\renewcommand\rightmark{Index}
+\addcontentsline{toc}{chapter}{Index}
+
+\printindex
+
+
+\end{document}
